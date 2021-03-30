@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application - Guess Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="textTop">
+        Привет, я загадаю число из вашего диапазона. Введите максимальное и минимальное значение и количетво попыток
+    </div>
+    <div class="input">
+        <p>введите минимальное число</p>
+        <input class="inputMin" type="text" value="1">
+        <p>введите максимальное число</p>
+        <input class="inputMax" type="text" value="100">
+        <p>введите количество попыток</p>
+        <input class="inputTries" type="text" value="5">
+        <input type="button" value="поехали" class="generateButton">
+        <p class="validationMessage">Сообщение о валидации</p>
+    </div>
+    <div class="game">
+        <p>введите свою догадку</p>
+        <input type="text" value="" class="userInput">
+        <input type="button" value="принять число" class="userButton">
+        <p class="text">Сообщение об ответе</p>
+    </div>
+    <div class="resetButton">
+        <input class = "exitButton" type="button" value="exit">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

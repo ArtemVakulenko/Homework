@@ -108,3 +108,9 @@ function getGradeByRating(rating){
     }
     return grade
 }
+
+module.exports = { sumOrMultiply };
+module.exports = { getQuarterByCoordinates };
+module.exports = { getSumOfPositiveNumbers }
+module.exports = { sumOrMultiplyPlus3 };
+module.exports = { getGradeByRating };

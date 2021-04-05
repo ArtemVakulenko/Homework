@@ -1,31 +1,32 @@
 var minValue = document.querySelector('.inputMin')
 var maxValue = document.querySelector('.inputMax')
-var generateButton = document.querySelector('.generateButton')
-var resultStr = document.querySelector('.result')
+var generateButtonFirst = document.querySelector('.generateButtonFirst')
+var generateButtonSecond = document.querySelector('.generateButtonSecond')
+var resultStr = document.querySelector('.resultMsg')
 var resetButton = document.querySelector('.resetButton')
 
-var min, max
+var min, max, length
+var count = 0
 var sequence = []
+generateButtonFirst.addEventListener('click', setSequence)
+generateButtonSecond.addEventListener('click', revealSequence)
+resetButton.addEventListener('click', reset)
 
-generateButton.onclick = function(){
-    min = minValue.value
-    max = maxValue.value
+function setSequence(){ //создание массива всех вариантов и показ первого
+    min = +minValue.value
+    max = +maxValue.value
+    length = max - min + 1
+    for(var i = min; i <= max; i++){
+        sequence[i - min]= i 
+    }
+    shuffle(sequence)
+    console.log(sequence)
+    resultStr.innerHTML = 'generated sequence is ' + sequence[0]
+    count++
 }
-
-
-//тестовые скрипты
-var min = 10
-var max = 26
-var length = max - min + 1
-var nums = []
-var randIndex =  Math.floor (Math.random() * (length));
-//создание массива всех вариантов
-for(var i = min; i <= max; i++){
-    nums[i - min]= i
-}
-//перемешивание вариантов
-function shuffle(array){
-	var randIndex, tempElement;
+function shuffle(array){ //перемешивание вариантов
+	var randIndex =  Math.floor (Math.random() * (length))
+    var tempElement;
 	for(var i = array.length - 1; i > 0; i--){
 		randIndex = Math.floor(Math.random()*(i + 1));
 		tempElement = array[randIndex];
@@ -34,14 +35,16 @@ function shuffle(array){
 	}
 	return array;
 }
-//добавление перемешанных вариантов по одному в новый массив
-function revealSequence (array){
-    var sequence = []
-    for (var i = 0; i < array.length; i++){
-        sequence[i] = nums[i] 
+
+function revealSequence (){//добавление перемешанных вариантов по одному в новый массив
+    resultStr.innerHTML += ' ' + sequence[count]
+    count++
+    if (count === sequence.length){
+        resultStr.innerHTML += ' all number have been displayed'
     }
-    return sequence
+
 }
-console.log(nums);
-console.log(shuffle(nums));
-console.log(revealSequence(nums));
+
+function reset (){
+location.reload()
+}

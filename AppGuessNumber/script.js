@@ -8,7 +8,8 @@ var userInput = document.querySelector(".userInput")
 var ansMsg = document.querySelector(".text")
 var inputSpace = document.querySelector(".input")
 var gameSpace = document.querySelector(".game")
-var exitButton = document.querySelector("exitButton")
+var exitButton = document.querySelector(".exitButton")
+var numOfTriesMsg = document.querySelector(".Tries")
 
 
 var min, max, tries, rand, ans
@@ -19,12 +20,13 @@ btnGenerate.onclick = function(){
     max = +maxValue.value
     tries = +numOfTries.value
     rand = Math.floor (Math.random() * (max - min + 1)) + min;
+    console.log(rand);
     inputSpace.style.display = "none"
     gameSpace.style.display = "block"
     if(min < 1 || min > 200 || max < 1 || max > 200 || min >= max || tries < 1 || tries > 15){
         validMsg.innerHTML = "Ваши значения не валидны"
-
     }
+    numOfTriesMsg.innerHTML = tries
 }
 
 btnUser.onclick = function(){
@@ -32,13 +34,11 @@ btnUser.onclick = function(){
     guesses.push(ans)
     var guessesCount = guesses.length
      ans = +userInput.value
-     console.log(ansMsg);
      if (ans === rand){
        res = 'оно'
     }else {
-        res  = ' ne ono'
+        res  = 'не оно'
     }
-
     if (guessesCount > 1 && res !== 'оно' ){
         if ((rand - guesses[guessesCount - 1]) > (rand - guesses[guessesCount - 2])){
             res += ' холоднее'
@@ -47,8 +47,13 @@ btnUser.onclick = function(){
         }
     }
     ansMsg.innerHTML = res
+    tries--
+    numOfTriesMsg.innerHTML = tries
+    if (tries === 0){
+        ansMsg.innerHTML = 'не смог'
+    }
 }
 
 exitButton.onclick = function(){
-    window.location.reload()
+    location.reload()
 }

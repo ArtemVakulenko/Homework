@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="topMessage">
-        <h1>Это приложение - рандомайзер</h1>
-    </div>
-    <div class="mainBody">
-        <p>Введите минимальное число</p>
-        <input type="text" value="" class="inputMin">
-        <p>Введите максимальное число</p>
-        <input type="text" value="" class="inputMax">
-        <input type="button" value="generate first" class="generateButtonFirst">
-        <input type="button" value="generate second" class="generateButtonSecond">
-        <p class = 'resultMsg'></p>
-        <input type="button" value="reset" class="resetButton">
+    <div class="app">
+        <div class="mainBody">
+            <div class="inputs">
+                <p>Welcome to my randomizer app</p>
+                <p>Введите минимальное число</p>
+                <input type="text" value="" class="inputMin">
+                <p>Введите максимальное число</p>
+                <input type="text" value="" class="inputMax">
+            </div>
+            <div class="buttons">
+                <input type="button" value="generate first" class="generateButtonFirst">
+                <input type="button" value="generate second" class="generateButtonSecond hide">
+                <p class = 'resultMsg'></p>
+                <input type="button" value="reset" class="resetButton">
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

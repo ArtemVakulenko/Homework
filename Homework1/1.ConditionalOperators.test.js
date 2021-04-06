@@ -12,7 +12,6 @@ describe('sumOrMultiply', function(){
         expect(typeof sumOrMultiply).toBe('function')
     })
 })
-
 // describe('getQuarterByCoordinates', function(){
 //     it('should be defined', function(){
 //         expect(getQuarterByCoordinates).toBeDefined()

@@ -23,6 +23,8 @@ function setSequence(){ //создание массива всех вариан�
     console.log(sequence)
     resultStr.innerHTML = 'generated sequence is ' + sequence[0]
     count++
+    generateButtonFirst.classList.add('hide')
+    generateButtonSecond.classList.remove('hide')
 }
 function shuffle(array){ //перемешивание вариантов
 	var randIndex =  Math.floor (Math.random() * (length))
@@ -41,6 +43,7 @@ function revealSequence (){//добавление перемешанных ва�
     count++
     if (count === sequence.length){
         resultStr.innerHTML += ' all number have been displayed'
+        generateButtonSecond.setAttribute('disabled','true')
     }
 
 }

@@ -18,10 +18,10 @@ function findOddOrEven(array){
             oddArray.push(array[i])
         }
     }
-    if(oddArray.length < evenArray.length){
+    if(oddArray.length === 1){
         res = oddArray[0]
     }
-    else{
+    if(evenArray.length === 1){
         res = evenArray[0]
     }
     return res
@@ -32,3 +32,29 @@ function findOddOrEven(array){
 
 
 //  4. Принимая строку, ваша функция должна вернуть обьект, в котором ключи – символы строки, значение – количество повторений символов в строке
+
+// 5. Принимая число, ваша функция должна найти следующий положительный палиндром большего размера.
+
+function getNextPalindrome(num){
+    for (var i = num; i++;){
+        var strNum = String(num)
+        var check = isPalindrome(strNum)
+        if(check === true){
+            return i
+        }
+    }
+}
+function isPalindrome(str) {
+    var reverseStr = "";
+    for (var i = str.length - 1; i >= 0; i--) {
+      reverseStr += str[i];
+    }
+    if(str === reverseStr){
+        return true
+    }
+    else {
+        return false
+    }
+  }
+console.log(isPalindrome('151'));
+console.log(getNextPalindrome(146));

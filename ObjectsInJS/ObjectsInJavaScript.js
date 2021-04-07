@@ -43,15 +43,14 @@ function findTitle (array, string){
     string = string.toLowerCase()
     for(var i = 0; i < array.length; i++){
         if(array[i].hasOwnProperty('title')){
-            array[i]['title'].toLowerCase()
-            if(array[i]['title'].includes(string)){
+            var titleToLowerCasse = array[i]['title'].toLowerCase()
+            if(titleToLowerCasse.includes(string)){
                 filteredArray.unshift(array[i])
             }
         }
     }
     return filteredArray
 }
-// console.log(findTitle(arrayObjects, 'js'));
 //  4. Принимая строку, ваша функция должна вернуть обьект, в котором ключи – символы строки, значение – количество повторений символов в строке
 
 function breakDownString(str){
@@ -64,19 +63,21 @@ function breakDownString(str){
     }
     return strObj
 }
-// console.log(breakDownString('qwweeerrrrtttttyaa'));
 
 // 5. Принимая число, ваша функция должна найти следующий положительный палиндром большего размера.
 
 function getNextPalindrome(num){
+    var res
     for (var i = num; i++;){
-        var strNum = String(num)
-        var check = isPalindrome(strNum)
-        if(check === true){
-            return i
+        var strNum = String(i)
+        if(isPalindrome(strNum)){
+            res = i
+            break
         }
     }
+    return res
 }
+
 function isPalindrome(str) {
     var reverseStr = "";
     for (var i = str.length - 1; i >= 0; i--) {
@@ -89,5 +90,3 @@ function isPalindrome(str) {
         return false
     }
   }
-// console.log(isPalindrome('151'));
-// console.log(getNextPalindrome(146));

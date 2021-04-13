@@ -2,12 +2,11 @@
 
 function sumOrMultiply (a, b) {
     if (a % 2 == 0){
-        var res = a * b;
+        return a * b;
     }
     else {
-        var res = a + b;
+        return a + b;
     }
-    return res;
 }
 
 //Условние операторы 2
@@ -74,12 +73,11 @@ function getSumOfPositiveNumbers (x, y, z,){
 
 function sumOrMultiplyPlus3 (a, b, c){
     if ((a * b * c ) > (a + b + c )){
-	    var res = (a * b * c ) + 3;
+	    return (a * b * c ) + 3;
 	}
 	else {
-		var res = (a + b + c ) + 3;
+		return (a + b + c ) + 3;
 	}
-    return res;
 }
 
 //Условные операторы 5

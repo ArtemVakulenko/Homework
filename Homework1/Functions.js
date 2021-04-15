@@ -8,19 +8,22 @@ var days = ['понедельник',
 	'суббота',
 	'воскресенье'];
 
-    function numToDay (num){
-        var day = days[num - 1]
-        return day
-    }
+function numToDay (num){
+	if (num > 7 || num <= 0 ){
+		return false
+	}else return days[num - 1]
+}
 
 //Функции 2
 
 function distanceDecart (x1, y1, x2, y2){
+	if(typeof x1 !== "undefined" && typeof x2 !== "undefined" && typeof y1 !== "undefined" && typeof y2 !== "undefined"){
 	var distX = Math.pow((x1 - x2), 2);
 	var distY = Math.pow((y1 - y2), 2);
 	var distance = Math.sqrt(distX + distY);
 	return distance;
-	}
+	}else return false
+}
 	
 //Функции 3
 
@@ -72,7 +75,8 @@ var wordsHundreds = [
 	
 	
 	
-	function numberToString(num){
+function numberToString(num){
+if(num){
 	if ((num >= 100) && (num <= 999)) {
 		var word = hundreds (num)
 	}
@@ -86,7 +90,8 @@ var wordsHundreds = [
 		var word = ones (num)
 			}
 			return word
-	}
+	}else return false
+}
 
 	function hundreds (num){
 		if (num % 100 == 0){
@@ -145,4 +150,5 @@ var wordsHundreds = [
 		var word = wordsOnes[num - 1];
 		return word;
 	}
-//Функции 4
+
+	module.exports = {numToDay, distanceDecart, numberToString, days, wordsHundreds, wordsTens, wordsOnes, wordsTenToTwenty, hundreds, tens, tenToTwenty, ones}

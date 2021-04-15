@@ -9,30 +9,35 @@ function randomArrayGenerator(min, max, length){
 //массивы 1 
 
 function findMinElement (array){
-    var minElement = array[0]
-    for(var i = 0; i < array.length; i++){
-        if (minElement > array[i]) {
-            minElement = array[i]
+    if(Array.isArray(array)){
+        var minElement = array[0]
+        for(var i = 0; i < array.length; i++){
+            if (minElement > array[i]) {
+                minElement = array[i]
+            }
         }
-    }
-    return minElement
+        return minElement
+    }else return false
 }
 
 //Массивы 2
 
 function findMaxElement (array){
-    var maxElement = array[0]
-    for(var i = 0; i < array.length; i++){
-        if (maxElement < array[i]) {
-            maxElement = array[i]
+    if(Array.isArray(array)){
+        var maxElement = array[0]
+        for(var i = 0; i < array.length; i++){
+            if (maxElement < array[i]) {
+                maxElement = array[i]
+            }
         }
-    }
-    return maxElement
+        return maxElement
+    }else return false
 }
 
 //Массивы 3
 
 function findIndexOfMinElement (array){
+    if(Array.isArray(array)){
     var indexOfMinElement = 0
     for(var i = 0; i < array.length; i++){
         if (array[i] < array[0]) {
@@ -40,11 +45,13 @@ function findIndexOfMinElement (array){
         }
     }
     return indexOfMinElement
+}else return false
 }
 
 //Массивы 4
 
 function findIndexOfMaxElement (array){
+    if(Array.isArray(array)){
     var indexOfMaxElement = 0
     for(var i = 0; i < array.length; i++){
         if (array[i] > array[0]) {
@@ -52,11 +59,13 @@ function findIndexOfMaxElement (array){
         }
     }
     return indexOfMaxElement
+}else return false
 }
 
 //Массивы 5
 
 function sumOfOddElements (array){
+    if(Array.isArray(array)){
     var sum = 0
     for(var i = 0; i < array.length; i++){
         if(array[i] % 2 !== 0){
@@ -64,21 +73,25 @@ function sumOfOddElements (array){
         }
     }
     return sum
+}else return false
 }
 
 //Массивы 6
 
 function reversedArray(array){
+    if(Array.isArray(array)){
     var reversedArray = []
     for (var i = 0; i < array.length; i++){
         reversedArray[i] = array[array.length - i - 1]
     }
     return reversedArray
+}else return false
 }
 
 //Массивы 7
 
 function numOfOddElements (array){
+    if(Array.isArray(array)){
     var num = 0
     for (var i = 0; i < array.length; i++){
         if (array[i] % 2 !== 0){
@@ -86,11 +99,13 @@ function numOfOddElements (array){
         }
     }
     return num
+}else return false
 }
 
 //Массивы 8
 
-    function swapHalvesOfArray (array){
+function swapHalvesOfArray (array){
+    if(Array.isArray(array)){
     var swapArray = []
 	var i2 = (array.length / 2) ;
 	
@@ -104,26 +119,30 @@ function numOfOddElements (array){
 		}
 	}
     return swapArray
+}else return false
 }
 
 //Массивы 9 bubbleSort
 
-function bubbleSort(arr) {
-    for (var i = 0, endI = arr.length - 1; i < endI; i++) {
+function bubbleSort(array) {
+    if(Array.isArray(array)){
+    for (var i = 0, endI = array.length - 1; i < endI; i++) {
         for (var j = 0, endJ = endI - i; j < endJ; j++) {
-            if (arr[j] > arr[j + 1]) {
-                var swap = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = swap;
+            if (array[j] > array[j + 1]) {
+                var swap = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = swap;
             }
         }
     }
-    return arr;
+    return array;
+}else return false
 }
 
 //Массивы 9 selectionSort
 
 function selectionSort(array) { 
+    if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++) {
         var min = i;
         for(var j = i+1; j < array.length; j++){
@@ -138,11 +157,13 @@ function selectionSort(array) {
         }
     }
     return array;
+}else return false
 }
 
 //Массивы 9 insertionSort
 
 function insertionSort(array) {
+    if(Array.isArray(array)){
         for (var i = 1; i < array.length; i++) {
             var currentElement = array[i];
             var j = i-1; 
@@ -153,4 +174,7 @@ function insertionSort(array) {
             array[j+1] = currentElement;
         }
     return array;
+    }else return false
 }
+
+module.exports = {findMinElement, findMaxElement, findIndexOfMinElement, findIndexOfMaxElement, sumOfOddElements, reversedArray, numOfOddElements, swapHalvesOfArray, bubbleSort, selectionSort,insertionSort }

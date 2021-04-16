@@ -1,3 +1,42 @@
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: aquamarine;
+    padding: 15px;
+}
+.textTop{
+    text-align: center;
+}
+.input, .game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+}
+.inputTries, .inputMax, .inputMin{
+    width: 100px;
+}
+.inputTries:focus, .inputMax:focus, .inputMin:focus{
+   width: 50%;
+   height: 50%;
+}
+.generateButton, .buttonGuess{
+    width: fit-content;
+    margin: 15px;
+    align-self: center;
+}
+.generateButton:hover, .buttonGuess:hover{
+    width: 50%;
+}
 .hide{
     display: none;
 }

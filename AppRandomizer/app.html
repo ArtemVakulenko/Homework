@@ -11,16 +11,18 @@
     <div class="app">
         <div class="mainBody">
             <div class="inputs">
-                <p>Welcome to my randomizer app</p>
-                <p>Введите минимальное число</p>
+                <p>Welcome to my randomizer app, it will generate a random sequence of numbers between your min and max numbers</p>
+                <p>Enter your min number</p>
                 <input type="text" value="" class="inputMin">
-                <p>Введите максимальное число</p>
+                <p>Enter your max number</p>
                 <input type="text" value="" class="inputMax">
+                <p class="validationMessage"></p>
             </div>
             <div class="buttons">
-                <input type="button" value="generate first" class="generateButtonFirst">
-                <input type="button" value="generate second" class="generateButtonSecond hide">
+                <input type="button" value="generate" class="generateButtonFirst">
+                <input type="button" value="generate" class="generateButtonSecond hide">
                 <p class = 'resultMsg'></p>
+                <p class="endMessage"></p>
                 <input type="button" value="reset" class="resetButton">
             </div>
         </div>

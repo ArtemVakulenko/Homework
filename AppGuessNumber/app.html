@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application - Guess Number</title>
+    <title>App Guess Number</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="textTop">
-        Привет, я загадаю число из вашего диапазона. Введите максимальное и минимальное значение и количетво попыток
+        Welcome to my "Guess Number" app, i will generage a random number between your min and max, and you will have to guess it in a number of tries, if you just wanna play with standart settings, hit "Lets Go" button
     </div>
     <div class="input">
-        <p>введите минимальное число</p>
+        <p>Enter your min number</p>
         <input class="inputMin" type="text" value="1">
-        <p>введите максимальное число</p>
+        <p>Enter your max number</p>
         <input class="inputMax" type="text" value="100">
-        <p>введите количество попыток</p>
+        <p>Enter how many tries you want to have but no more than 15 :^) </p>
         <input class="inputTries" type="text" value="5">
-        <input type="button" value="поехали" class="generateButton">
-        <p class="validationMessage">Сообщение о валидации</p>
+        <input type="button" value="Lets Go" class="generateButton">
+        <p class="validationMessage"></p>
     </div>
     <div class="game hide">
-        <p>введите свою догадку</p>
+        <p>Enter your guess</p>
         <input type="text" value="" class="userInput">
-        <input type="button" value="принять число" class="buttonGuess">
-        <p class="text">Сообщение об ответе</p>
-        <p class="Tries">Осталось попыток</p>
+        <input type="button" value="check" class="buttonGuess">
+        <p class="text"></p>
+        <p class="Tries"></p>
     </div>
     <div class="resetButton">
         <input class = "exitButton" type="button" value="exit">

@@ -12,7 +12,8 @@ var exitButton = document.querySelector(".exitButton")
 var numOfTriesMsg = document.querySelector(".Tries")
 
 
-var min, max, tries, rand
+var min, max, tries, rand;
+var triesCount = 0
 var guesses = []
 btnGenerate.addEventListener('click', setValues)
 btnGuess.addEventListener('click', checkAns)
@@ -26,15 +27,15 @@ function setValues(){
         console.log(rand);
         inputSpace.classList.add("hide")
         gameSpace.classList.remove("hide")
-        numOfTriesMsg.innerHTML += ' ' + tries
+        numOfTriesMsg.innerHTML = 'Tries left: ' + tries
     }else{
-        validMsg.innerHTML = "Ваши значения не валидны"
+        validMsg.innerHTML = "invalid inputs"
     }
 }
 
 function checkValidity(min, max, tries){
-    var checkMin, checkMax, checkTries, res
-    if(min < 0 || min > 200 || min > max || isNaN(min)){
+    var checkMin, checkMax, checkTries;
+    if (min < 0 || min > 200 || min > max || isNaN(min)){
         checkMin = false
     }else{
         checkMin = true
@@ -52,29 +53,31 @@ function checkValidity(min, max, tries){
     return (checkMin && checkMax && checkTries)
 }
 function checkAns (){
+    triesCount++
+    tries--
     var res
     var ans = +userInput.value
     guesses.push(ans)
     console.log(guesses)
     var ono = ans === rand
     if (ono){
-       res = 'оно'
+       res = 'GOT IT!, you guessed my number in  ' + triesCount + ' tries' 
        btnGuess.setAttribute('disabled', 'true')
+       numOfTriesMsg.innerHTML = ''
     }else {
-        res  = 'не оно'
-    }
-    if (guesses.length > 1 && res !== 'оно' ){
-        if ((rand - guesses[guesses.length - 1]) > (rand - guesses[guesses.length - 2])){
-            res += ' холоднее'
-        }else {
-            res += ' теплее'
+        res  = 'Nope'
+        numOfTriesMsg.innerHTML = 'Tries left: ' + tries
+        if (guesses.length > 1){
+            if ((rand - guesses[guesses.length - 1]) > (rand - guesses[guesses.length - 2])){
+                res += ' colder'
+            }else {
+                res += ' hotter'
+            }
         }
     }
-    
-    tries--
-    numOfTriesMsg.innerHTML = 'осталось попыток ' + tries
     if (tries === 0 && !ono){
-        res = 'проиграл'
+        res = 'LOSER'
+        numOfTriesMsg.innerHTML = ''
         btnGuess.setAttribute('disabled', 'true')
     }
     ansMsg.innerHTML = res

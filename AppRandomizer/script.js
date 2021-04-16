@@ -4,7 +4,8 @@ var generateButtonFirst = document.querySelector('.generateButtonFirst')
 var generateButtonSecond = document.querySelector('.generateButtonSecond')
 var resultStr = document.querySelector('.resultMsg')
 var resetButton = document.querySelector('.resetButton')
-
+var validationMsg = document.querySelector('.validationMessage')
+var endMsg = document.querySelector('.endMessage')
 var min, max, length
 var count = 0
 var sequence = []
@@ -16,15 +17,32 @@ function setSequence(){ //создание массива всех вариан�
     min = +minValue.value
     max = +maxValue.value
     length = max - min + 1
-    for(var i = min; i <= max; i++){
-        sequence[i - min]= i 
+    if(validateNums(min, max)){
+        for(var i = min; i <= max; i++){
+            sequence[i - min]= i 
+        }
+        shuffle(sequence)
+        console.log(sequence)
+        resultStr.innerHTML = 'Generated sequence is ' + sequence[0]
+        count++
+        generateButtonFirst.classList.add('hide')
+        generateButtonSecond.classList.remove('hide')
+        validationMsg.innerHTML = ''
     }
-    shuffle(sequence)
-    console.log(sequence)
-    resultStr.innerHTML = 'generated sequence is ' + sequence[0]
-    count++
-    generateButtonFirst.classList.add('hide')
-    generateButtonSecond.classList.remove('hide')
+    else validationMsg.innerHTML = 'Invalid inputs'
+}
+function validateNums(min, max){
+    if (min < 0 || min > 100000 || min > max || isNaN(min)){
+        checkMin = false
+    }else{
+        checkMin = true
+    }
+    if(max < 0 || max > 100000  || isNaN(max)){
+        checkMax = false
+    }else{
+        checkMax = true
+}
+return (checkMin && checkMax)
 }
 function shuffle(array){ //перемешивание вариантов
 	var randIndex =  Math.floor (Math.random() * (length))
@@ -42,12 +60,12 @@ function revealSequence (){//добавление перемешанных ва�
     resultStr.innerHTML += ' ' + sequence[count]
     count++
     if (count === sequence.length){
-        resultStr.innerHTML += ' all number have been displayed'
+        endMsg.innerHTML = 'All number have been displayed'
         generateButtonSecond.setAttribute('disabled','true')
     }
 
 }
 
 function reset (){
-location.reload()
+    location.reload()
 }

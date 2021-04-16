@@ -1,3 +1,39 @@
+.сontainer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: aquamarine;
+    padding: 15px;
+}
+.inputs, .buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 25%;
+}
+.inputMax, .inputMin{
+    width: 100px;
+}
+ .inputMax:focus, .inputMin:focus{
+   width: 50%;
+   height: 50%;
+}
+.generateButtonFirst, .generateButtonSecond{
+    width: fit-content;
+    margin: 15px;
+    align-self: center;
+}
+.generateButtonFirst:hover, .generateButtonSecond:hover{
+    width: 50%;
+}
 .hide{
     display: none;
 }

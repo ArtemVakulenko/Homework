@@ -67,4 +67,23 @@ function getQuantityPostsByAuthor (array, person) {
 // cachedFunc(‘foo’, ‘baz’) // complexFunction должна выполнится
 // //потому что метод не вызывался раньше с этими аргументами
 
-module.exports = {tickets, getQuantityPostsByAuthor}
+
+function complexFunction(arg1, arg2) {
+    return arg1 + arg2
+}
+
+function cache(func) {
+    var cache = [];
+    return function (arg1, arg2) {
+
+    for (var i = 0; i < cache.length; i++) {
+        if (arguments[0] === cache[i].arg1 && arguments[1] === cache[i].arg2) {
+            return cache[i].result
+        }
+    }
+    var result = func(arg1, arg2);
+    cache.push({ arg1: arguments[0], arg2: arguments[1], result });
+    return result;
+    }
+}
+module.exports = {tickets, getQuantityPostsByAuthor, complexFunction, cache,}
